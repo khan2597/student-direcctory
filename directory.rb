@@ -27,14 +27,14 @@ end
 
 def print_header
   puts "The students of Villains Academy"
-  puts "____________"
+  puts "____________".center(60)
 end
 
 def print(students)
   i = 0
   while students.count > i do
     if (students[i][:name].start_with? 'a') || (students[i][:name].length < 12)
-      puts "#{i}: #{students[i][:name]} (#{students[i][:cohort]} cohort)"
+      puts "#{i}: #{students[i][:name]} (#{students[i][:cohort]} cohort)".center(60)
     end
     i += 1
   end
