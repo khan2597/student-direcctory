@@ -3,6 +3,8 @@ def input_students
   puts "To finish, just hit return twice"
   students = []
   name = gets.chomp
+  puts "Which cohort are they in?"
+  cohort = gets.chomp.to_s
   puts "Any hobbies?"
   hobbies = gets.chomp
   puts "Country of birth?"
@@ -10,7 +12,10 @@ def input_students
   puts "Height?"
   height = gets.chomp
   while !name.empty? do
-    students << {name: name, cohort: :november, hobbies: hobbies, country: country, height: height}
+    if cohort.empty?
+      cohort = :default
+    end
+    students << {name: name, cohort: cohort, hobbies: hobbies, country: country, height: height}
     puts "Now we have #{students.count} students"
     puts "Enter the student name"
     name = gets.chomp
