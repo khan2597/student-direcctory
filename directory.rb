@@ -3,10 +3,24 @@ def input_students
   puts "To finish, just hit return twice"
   students = []
   name = gets.chomp
+  puts "Any hobbies?"
+  hobbies = gets.chomp
+  puts "Country of birth?"
+  country = gets.chomp
+  puts "Height?"
+  height = gets.chomp
   while !name.empty? do
-    students << {name: name, cohort: :november}
+    students << {name: name, cohort: :november, hobbies: hobbies, country: country, height: height}
     puts "Now we have #{students.count} students"
+    puts "Enter the student name"
     name = gets.chomp
+    break if name.empty?
+    puts "Any hobbies?"
+    hobbies = gets.chomp
+    puts "Country of birth?"
+    country = gets.chomp
+    puts "Height?"
+    height = gets.chomp
   end
   students
 end
