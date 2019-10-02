@@ -17,7 +17,13 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index { |student, index| p " #{index} #{student[:name]} (#{student[:cohort]} cohort)" }
+  i = 0
+  while students.count > i do
+    if (students[i][:name].start_with? 'a') || (students[i][:name].length < 12)
+      puts "#{i}: #{students[i][:name]} (#{students[i][:cohort]} cohort)"
+    end
+    i += 1
+  end
 end
 
 def print_footer(students)
