@@ -5,27 +5,17 @@ def input_students
   name = gets.chomp
   puts "Which cohort are they in?"
   cohort = gets.chomp.to_s
-  puts "Any hobbies?"
-  hobbies = gets.chomp
-  puts "Country of birth?"
-  country = gets.chomp
-  puts "Height?"
-  height = gets.chomp
   while !name.empty? do
     if cohort.empty?
       cohort = :default
     end
-    students << {name: name, cohort: cohort, hobbies: hobbies, country: country, height: height}
+    students << {name: name, cohort: cohort}
     puts "Now we have #{students.count} students"
     puts "Enter the student name"
     name = gets.chomp
     break if name.empty?
-    puts "Any hobbies?"
-    hobbies = gets.chomp
-    puts "Country of birth?"
-    country = gets.chomp
-    puts "Height?"
-    height = gets.chomp
+    puts "Which cohort are they in?"
+    cohort = gets.chomp.to_s
   end
   students
 end
@@ -33,6 +23,10 @@ end
 def print_header
   puts "The students of Villains Academy"
   puts "____________".center(60)
+end
+
+def sorted_by_cohort(students)
+  students.sort_by { |student| student[:cohort]}.map { |student| puts "#{student[:name]} : #{student[:cohort]}" }
 end
 
 def print(students)
@@ -51,5 +45,6 @@ end
 
 students = input_students
 print_header
-print(students)
+# print(students)
+sorted_by_cohort(students)
 print_footer(students)
